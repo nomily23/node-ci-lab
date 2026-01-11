@@ -1,0 +1,27 @@
+name: Node.js CI
+
+# דרישה 1: לרוץ אוטומטית בכל push
+on: [push]
+
+jobs:
+  build:
+    # דרישה 2: לעבוד על מערכת Linux
+    runs-on: ubuntu-latest
+
+    steps:
+    # דרישה 3: להוריד את הקוד מה-Repository
+    - uses: actions/checkout@v3
+
+    # הגדרת Node.js (שלב מומלץ כדי שהכל יעבוד חלק)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # דרישה 4: להתקין תלויות
+    - name: Install dependencies
+      run: npm install
+
+    # דרישה 5: להריץ בדיקות
+    - name: Run tests
+      run: npm test
