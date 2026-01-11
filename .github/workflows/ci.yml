@@ -25,3 +25,5 @@ jobs:
     # דרישה 5: להריץ בדיקות
     - name: Run tests
       run: npm test
+      - name: Print success message
+      run: echo "Build and Test finished successfully! Good job!"
